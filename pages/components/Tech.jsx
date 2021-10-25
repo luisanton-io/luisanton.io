@@ -34,9 +34,9 @@ export default function Tech() {
 
     return (
         <div className={styles.tech}>
-            <h2 ref={ref}>tech i use</h2>
+            <h2>tech i use</h2>
 
-            <div className={styles.techWrapper} style={inView ? { height: '60vh' } : { height: 0 }}>
+            <div ref={ref} className={styles.techWrapper} style={inView ? { height: '60vh' } : { height: 0 }}>
                 {
                     tech.map(([name, url], i) => (
                         <motion.a
