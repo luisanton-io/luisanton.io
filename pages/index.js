@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Head>
         <title>LuisAnton.io</title>
-        <meta name="description" content="Luis Antonio is a Full Stack Web Developer for hire" />
+        <meta name="description" content="Luis Antonio | Full Stack Web Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
