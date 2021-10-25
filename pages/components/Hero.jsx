@@ -6,14 +6,14 @@ export default function Hero() {
 
     useEffect(() => {
         setInterval(() => {
-            setTint(t => ++t)
+            setTint(t => ++t % 360)
         }, 150)
     }, [])
 
     return <div className={styles.hero} >
         <div className="scale-in-center">
             <div className={styles.imgWrapper}>
-                <div style={{ '--tint': tint % 360 }}>
+                <div style={{ '--tint': tint }}>
                     <img src="/me.png" alt="Luis Antonio" />
                 </div>
             </div>
