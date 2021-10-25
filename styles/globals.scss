@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import "colors.scss";
+@import "animations.scss";
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  font-family: Abel, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+  color: $white;
+}
+
+p {
+  font-family: Abel, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif !important;
+}
+
+html {
+  background: hsl(219, 21%, 26%);
+  // background: #47994d;
+}
+
+body {
+  background: linear-gradient(45deg, rgba(17, 55, 126, 1) 0%, #47994d 100%);
+  background-size: 200% 100%;
+  animation: slide 15s ease infinite;
+  height: 100vh;
+  color: $white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
