@@ -33,6 +33,9 @@ body {
   animation: slide 15s ease infinite;
   height: 100vh;
   color: $white;
+  @supports (-webkit-hyphens: none) {
+    max-height: -webkit-fill-available;
+  }
 }
 
 a {
