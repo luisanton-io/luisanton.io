@@ -105,6 +105,10 @@
 
   position: relative;
   z-index: 1;
+
+  > div {
+    max-width: 768px;
+  }
 }
 
 .tech {
@@ -132,6 +136,7 @@
       grid-template: 33.333% 33.334% 33.333% / repeat(4, 25%);
       padding-left: 10vh;
       padding-right: 10vh;
+      max-width: 1024px;
     }
 
     transition: height 2s ease-in-out;

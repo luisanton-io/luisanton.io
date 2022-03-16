@@ -36,6 +36,10 @@ body {
   @supports (-webkit-hyphens: none) {
     max-height: -webkit-fill-available;
   }
+
+  @media (min-width: 768px) {
+    font-size: 1.1em;
+  }
 }
 
 a {
