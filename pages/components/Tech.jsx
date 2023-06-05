@@ -4,18 +4,25 @@ import { useInView } from "react-intersection-observer"
 import styles from "../../styles/index.module.scss"
 
 const tech = [
-    ["HTML", "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"],
-    ["CSS", "https://developer.mozilla.org/en-US/docs/Web/CSS"],
-    ["Javascript", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"],
-    ["Bootstrap", "https://getbootstrap.com/"],
+    // ["HTML", "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"],
+    // ["CSS", "https://developer.mozilla.org/en-US/docs/Web/CSS"],
     ["React", "https://reactjs.org/"],
+    ["Bootstrap", "https://getbootstrap.com/"],
+    ["SCSS", "https://sass-lang.com/"],
     ["Redux", "https://redux.js.org/"],
-    ["Material UI", "https://mui.com"],
+    ["Recoil", "https://recoiljs.org/"],
+    // ["TailwindCSS", "https://tailwindcss.com/"],
+    // ["Material UI", "https://mui.com"],
+    // ["Javascript", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"],
     ["Angular", "https://angular.io/"],
     ["Typescript", "https://www.typescriptlang.org/"],
     ["Node JS", "https://nodejs.org/"],
     ["Mongo DB", "https://www.mongodb.com/"],
     ["PostgreSQL", "https://www.postgresql.org/"],
+    ["Solidity", "https://soliditylang.org/"],
+    ["Hardhat", "https://hardhat.org/"],
+    // ["Ethers", "https://ethers.org/"],
+    // ["Remix", "https://remix.ethereum.org/"],
 ]
 
 export default function Tech() {
@@ -46,7 +53,7 @@ export default function Tech() {
                             variants={variants({ delay: i / tech.length })}
                             style={{
                                 display: 'grid',
-                                placeItems: "center"
+                                placeItems: 'center'
                             }}
                             target="_blank"
                         >

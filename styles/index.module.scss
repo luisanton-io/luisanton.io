@@ -130,12 +130,14 @@
     display: grid;
     width: 100%;
     grid-template: repeat(4, 25%) / 33.333% 33.334% 33.333%;
+    // grid-template: repeat(5, 20%) / 33.333% 33.334% 33.333%;
     justify-items: center;
     align-items: center;
     margin-top: 2em;
 
     @media (min-width: 768px) {
       grid-template: 33.333% 33.334% 33.333% / repeat(4, 25%);
+      // grid-template: 33.333% 33.334% 33.333% / repeat(5, 20%);
       padding-left: 10vh;
       padding-right: 10vh;
       max-width: 1024px;
@@ -174,12 +176,185 @@
   }
 }
 
-.contacts {
-  position: relative;
+.projects {
+  @extend .flex-section;
+
   --bg: #1d343991;
   background-color: var(--bg);
   backdrop-filter: blur(16px);
-  clip-path: polygon(0 0%, 100% 3%, 100% 100%, 0 100%);
+  clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0 97%);
+  padding: 4em;
+  min-height: 90vh;
+
+  a {
+    color: $link;
+    cursor: pointer;
+  }
+
+  .wrapper {
+    margin-top: 2em;
+    max-width: 100%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    .project {
+      display: flex;
+      gap: 1ch;
+
+      width: 70vw;
+      margin: 1em;
+      > div {
+      }
+
+      .imgWrapper {
+        flex-basis: 35%;
+        // display: flex;
+        // justify-content: center;
+        // flex-grow:1;
+        display: grid;
+        place-items: center;
+        img {
+          width: 100%;
+          max-width: 200px;
+          margin: auto;
+
+          &[src*="diskreta"] {
+            border-radius: 1.5em;
+            // width: 256px;
+          }
+        }
+      }
+
+      .caption {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        flex-basis: 65%;
+        // flex-grow: 1;
+        padding: 1em;
+
+        @media (min-width: 768px) {
+          padding: 2em;
+        }
+      }
+
+      &:nth-of-type(odd) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  & + dialog {
+    a {
+      color: $link;
+      cursor: pointer;
+    }
+    background: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(16px);
+    border: none;
+    border-radius: 0px;
+    padding: 4em;
+    color: $white;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    &::backdrop {
+      background: rgba(13, 13, 13, 0.3);
+    }
+
+    .modalMediaWrapper {
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    ul {
+      padding-inline-start: unset;
+    }
+
+    ul.links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2ch;
+      li {
+        list-style-type: none;
+        width: 100px;
+        height: 100px;
+        border: 1px solid hsla(100, 100%, 100%, 0.5);
+        padding: 1em;
+        display: grid;
+        place-items: center;
+        text-align: center;
+      }
+    }
+
+    ul.features {
+      flex-basis: 60%;
+      margin-inline-start: 4em;
+      margin-inline-end: 2em;
+      li {
+        margin-bottom: 1em;
+      }
+    }
+
+    .stack {
+      display: flex;
+      flex-grow: 1;
+      > div {
+        flex-grow: 1;
+      }
+      ul li {
+        list-style: none;
+        position: relative;
+        line-height: 2em;
+        &::after {
+          content: "";
+          display: block;
+          width: 90%;
+          height: 1px;
+          // background-color: hsla(100, 100%, 100%, 0.5);
+          position: absolute;
+          top: 100%;
+          background: linear-gradient(to right, hsla(100, 100%, 100%, 0.5), transparent);
+        }
+      }
+    }
+
+    .dialogClose {
+      position: absolute;
+      background: transparent;
+      outline-color: transparent;
+      box-shadow: none;
+      border: none;
+      top: 1em;
+      right: 1em;
+      cursor: pointer;
+      color: $white;
+      font-size: 2em;
+      transition: transform 0.5s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &::after {
+        content: "×";
+      }
+    }
+  }
+}
+
+.contacts {
+  position: relative;
+  // --bg: #1d343991;
+  // background-color: var(--bg);
+  // backdrop-filter: blur(16px);
+  // clip-path: polygon(0 0%, 100% 3%, 100% 100%, 0 100%);
 
   &,
   h2 {

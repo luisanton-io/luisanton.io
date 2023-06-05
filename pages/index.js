@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import AboutMe from './components/AboutMe'
 import Tech from './components/Tech'
 import Contacts from './components/Contacts'
+import Projects from './components/Projects'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Hero />
         <AboutMe />
         <Tech />
+        <Projects />
         <Contacts />
 
       </main>
