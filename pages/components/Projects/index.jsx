@@ -1,12 +1,15 @@
 import { useRef, useState } from "react"
-import styles from "../../styles/index.module.scss"
+import styles from "../../../styles/index.module.scss"
+import DiskretaThumbnail from "./DiskretaThumbnail"
+import MusikMenuThumbnail from "./MusikMenuThumbnail"
+import RecoilNexusThumbnail from "./RecoilNexusThumbnail"
 
 const projects = [
     {
         name: "Diskreta",
         Description: function ({ openModal }) {
             return <>
-                <p>An anonymous E2E encrypted chat system. <a style={{ display: 'block'}} onClick={openModal}>Read more.</a></p>
+                <p>An anonymous E2E encrypted chat system. <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
             </>
         },
         modalContent: <>
@@ -47,13 +50,13 @@ const projects = [
                 </div>
             </div>
         </>,
-        image: "/projects/diskreta.png"
+        Thumbnail: DiskretaThumbnail
     },
     {
         name: "Musik Menu",
         Description: function ({ openModal }) {
             return <>
-                <p>A sleek link-in-bio service for musicians <a style={{ display: 'block'}} onClick={openModal}>Read more.</a></p>
+                <p>A sleek link-in-bio service for musicians <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
             </>
         },
         modalContent: <>
@@ -92,13 +95,13 @@ const projects = [
                 </div>
             </div>
         </>,
-        image: "/projects/diskreta.png"
+        Thumbnail: MusikMenuThumbnail
     },
     {
         name: "recoil-nexus",
         Description: function ({ openModal }) {
             return <>
-                <p>A simple Typescript module to update Recoil atoms outside React components. <a style={{ display: 'block'}} onClick={openModal}>Read more.</a></p>
+                <p>A simple Typescript module to update Recoil atoms outside React components. <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
             </>
         },
         modalContent: <>
@@ -139,23 +142,8 @@ const projects = [
                 </div>
             </div>
         </>,
-        image: "/projects/diskreta.png"
-    },
-    // {
-    //     name: "Project 2",
-    //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //     image: "https://via.placeholder.com/900x600"
-    // },
-    // {
-    //     name: "Project 3",
-    //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //     image: "https://via.placeholder.com/900x600"
-    // },
-    // {
-    //     name: "Project 4",
-    //     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //     image: "https://via.placeholder.com/900x600"
-    // }
+        Thumbnail: RecoilNexusThumbnail
+    }
 ]
 
 
@@ -173,12 +161,15 @@ export default function Projects() {
         <div className={styles.projects}>
             <h2>projects</h2>
             <div className={styles.wrapper}>
+                {/* <p>
+                    While a significant portion of my past work is IP protected, here is a selection of personal projects.
+                </p> */}
                 {
-                    projects.map(({ name, Description, modalContent, image }, i) => (
+                    projects.map(({ name, Description, modalContent, Thumbnail }, i) => (
                         <div key={i} className={styles.project}>
 
                             <div className={styles.imgWrapper}>
-                                <img src={image} alt={name} />
+                                <Thumbnail />
                             </div>
                             <div className={styles.caption}>
                                 <h3>{name}</h3>

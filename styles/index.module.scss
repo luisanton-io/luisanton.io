@@ -183,7 +183,7 @@
   background-color: var(--bg);
   backdrop-filter: blur(16px);
   clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0 97%);
-  padding: 4em;
+  padding: 3em;
   min-height: 90vh;
 
   a {
@@ -194,33 +194,68 @@
   .wrapper {
     margin-top: 2em;
     max-width: 100%;
-    
+
     display: flex;
     flex-wrap: wrap;
+
+    > p {
+      margin-inline: 1em;
+
+      @media (min-width: 768px) {
+        padding-inline: 2em;
+      }
+    }
+
     .project {
       display: flex;
-      gap: 1ch;
+      justify-content: space-between;
+      gap: 2ch;
+      @media (min-width: 768px) {
+        padding-inline: 4em;
+      }
 
       width: 70vw;
+      height: 20vh;
       margin: 1em;
-      > div {
-      }
 
       .imgWrapper {
         flex-basis: 35%;
-        // display: flex;
-        // justify-content: center;
-        // flex-grow:1;
         display: grid;
         place-items: center;
+        .square {
+          position: absolute;
+          border: 5px solid rgb(255, 196, 0);
+          inset: -10%;
+          @media (min-width: 768px) {
+            inset: -15%;
+          }
+          animation: rotating 4s ease-in-out forwards;
+          @keyframes rotating {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(90deg);
+            }
+          }
+        }
         img {
           width: 100%;
-          max-width: 200px;
+          max-width: 160px;
           margin: auto;
 
           &[src*="diskreta"] {
             border-radius: 1.5em;
-            // width: 256px;
+          }
+        }
+
+        .musikMenuThumbnail {
+          position: relative;
+          width: 60px;
+          height: 60px;
+          @media (min-width: 768px) {
+            width: 120px;
+            height: 120px;
           }
         }
       }
@@ -231,11 +266,10 @@
         justify-content: center;
         align-items: flex-start;
         flex-basis: 65%;
-        // flex-grow: 1;
-        padding: 1em;
+        // padding: 1em;
 
         @media (min-width: 768px) {
-          padding: 2em;
+          // padding: 2em;
         }
       }
 
