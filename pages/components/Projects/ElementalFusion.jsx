@@ -2,16 +2,10 @@ import { motion, useAnimation } from "framer-motion"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import styles from "../../../styles/index.module.scss"
+import useInViewAnimation from "../../hooks/useInViewAnimation"
 
 function ElementalFusionThumbnail() {
-    const animate = useAnimation()
-    const { ref, inView } = useInView({ triggerOnce: true })
-
-    useEffect(() => {
-        animate.start(inView ? 'visible' : 'hidden')
-    }, [animate, inView])
-
-    const variants = {
+    const animationProps = useInViewAnimation({
         hidden: {
             scale: 0.9,
             opacity: 0.3
@@ -21,11 +15,11 @@ function ElementalFusionThumbnail() {
             opacity: 1,
             transition: { duration: 3 }
         },
-    }
+    })
 
     return (
         <motion.img
-            {...{ variants, animate, ref }}
+            {...animationProps}
             className={styles.elementalFusionThumbnail}
             src="/projects/elemental-phoenix.webp"
             alt="Elemental Fusion"

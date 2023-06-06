@@ -3,7 +3,15 @@
 @import "animations.scss";
 @import "mixin";
 
-.flex-section {
+// .flex-section {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   min-height: 80vh;
+// }
+
+@mixin flex-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,7 +52,7 @@
   min-height: 90vh;
   transform: translateZ(-1px) scale(2);
 
-  @extend .flex-section;
+  @include flex-section;
   @include screen-md {
     flex-direction: row;
   }
@@ -94,7 +102,7 @@
   backdrop-filter: blur(16px);
   clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0 97%);
 
-  @extend .flex-section;
+  @include flex-section;
 
   h2,
   p {
@@ -118,7 +126,7 @@
   --bg: transparent;
   background-color: var(--bg);
 
-  @extend .flex-section;
+  @include flex-section;
   min-height: 90vh;
 
   h2,
@@ -178,7 +186,7 @@
 }
 
 .projects {
-  @extend .flex-section;
+  @include flex-section;
 
   --bg: #1d343991;
   background-color: var(--bg);
@@ -203,9 +211,8 @@
     gap: 1.25em;
 
     > p {
-      @include screen-md {
-        // padding-inline: 2em;
-      }
+      text-align: center;
+      width: 100%;
     }
 
     .project {
@@ -254,13 +261,15 @@
             position: absolute;
             border: 5px solid rgb(255, 196, 0);
             inset: 0%;
-            animation: rotating 4s ease-in-out forwards;
+            animation: rotating 3s cubic-bezier(0.53, 0, 0.01, 1.07) forwards;
             @keyframes rotating {
               0% {
-                transform: rotate(0deg);
+                transform: rotate(-90deg);
+                opacity: 0;
               }
               100% {
-                transform: rotate(90deg);
+                transform: rotate(0deg);
+                opacity: 1;
               }
             }
           }
@@ -432,7 +441,7 @@
     color: $white;
   }
 
-  @extend .flex-section;
+  @include flex-section;
 
   a {
     background-color: hsla(0, 0%, 0%, 0.5);

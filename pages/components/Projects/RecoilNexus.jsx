@@ -28,11 +28,14 @@ function Box(props) {
 }
 
 function RecoilNexusThumbnail() {
-    return <Canvas style={{ minWidth: 140 }}>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Box position={[0, 0, 0]} />
-    </Canvas>
+    return (
+        <Canvas style={{ minWidth: 140 }}>
+            <ambientLight />
+            <pointLight position={[10, 10, 10]} />
+            <Box position={[0, 0, 0]} />
+        </Canvas>
+    )
+
 }
 
 function ScrambledNumbers() {

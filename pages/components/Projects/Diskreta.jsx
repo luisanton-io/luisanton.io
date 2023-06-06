@@ -2,16 +2,11 @@ import { useAnimation, motion } from "framer-motion"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import styles from "../../../styles/index.module.scss"
+import useInViewAnimation from "../../hooks/useInViewAnimation"
 
 function DiskretaThumbnail() {
-    const animate = useAnimation()
-    const { ref, inView } = useInView({ triggerOnce: true })
 
-    useEffect(() => {
-        animate.start(inView ? 'visible' : 'hidden')
-    }, [animate, inView])
-
-    const variants = {
+    const animationProps = useInViewAnimation({
         hidden: {
             scale: 0.9,
             opacity: 0.3
@@ -21,9 +16,16 @@ function DiskretaThumbnail() {
             opacity: 1,
             transition: { duration: 3 }
         },
-    }
+    })
 
-    return <motion.img className={styles.diskretaThumbnail} {...{ variants, animate, ref }} src="/projects/diskreta.png" alt="Diskreta" />
+    return (
+        <motion.img
+            className={styles.diskretaThumbnail}
+            src="/projects/diskreta.png"
+            alt="Diskreta"
+            {...animationProps}
+        />
+    )
 
 }
 

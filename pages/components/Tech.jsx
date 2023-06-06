@@ -28,7 +28,7 @@ const tech = [
 export default function Tech() {
 
     const controls = useAnimation()
-    const { ref, inView } = useInView()
+    const { ref, inView } = useInView({ triggerOnce: true })
 
     useEffect(() => {
         controls.start(inView ? 'visible' : 'hidden')

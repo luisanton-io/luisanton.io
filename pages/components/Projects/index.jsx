@@ -1,12 +1,40 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import styles from "../../../styles/index.module.scss"
 import Diskreta from "./Diskreta"
 import ElementalFusion from "./ElementalFusion"
 import MusikMenu from "./MusikMenu"
 import RecoilNexus from "./RecoilNexus"
+import { useAnimation, motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import useInViewAnimation from "../../hooks/useInViewAnimation"
 
-function Description({ openModal, caption }) {
-    return <p>{caption} <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
+function Project({ name, description, Thumbnail, openModal, i }) {
+
+    const k = ~(-i % 2) || 1
+
+    const animationProps = useInViewAnimation({
+        hidden: {
+            translateX: 50 * -k,
+            opacity: 0
+        },
+        visible: {
+            translateX: 0,
+            opacity: 1,
+            transition: { duration: 1, delay: i / 4 }
+        },
+    })
+
+    return (
+        <div className={styles.project}>
+            <div className={styles.imgWrapper}>
+                <Thumbnail />
+            </div>
+            <motion.div className={styles.caption} {...animationProps}>
+                <h3>{name}</h3>
+                <p>{description} <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
+            </motion.div>
+        </div>
+    )
 }
 
 export default function Projects({ recoilNexusDownloads }) {
@@ -35,7 +63,7 @@ export default function Projects({ recoilNexusDownloads }) {
             <h2>projects</h2>
             <div className={styles.wrapper}>
                 <p>
-                    While a significant portion of my past work is IP protected, here is a selection of personal projects I have been working on.
+                    While a significant portion of my past work is protected IP, here is a selection of personal projects I have been working on.
                 </p>
                 {
                     [
@@ -43,18 +71,7 @@ export default function Projects({ recoilNexusDownloads }) {
                         MusikMenu,
                         RecoilNexus,
                         ElementalFusion
-                    ].map(({ name, description, ModalContent, Thumbnail }, i) => (
-                        <div key={i} className={styles.project}>
-
-                            <div className={styles.imgWrapper}>
-                                <Thumbnail />
-                            </div>
-                            <div className={styles.caption}>
-                                <h3>{name}</h3>
-                                <Description openModal={openModal(ModalContent)} caption={description} />
-                            </div>
-                        </div>
-                    ))
+                    ].map(({ ModalContent, ...props }, i) => <Project key={`prj-${i}`} openModal={openModal(ModalContent)} i={i} {...props} />)
                 }
 
             </div>
