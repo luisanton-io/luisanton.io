@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import styles from "../../../styles/index.module.scss"
 
-export default function DiskretaThumbnail() {
+export default function ElementalFusionThumbnail() {
     const animate = useAnimation()
     const { ref, inView } = useInView({ triggerOnce: true })
 
@@ -23,6 +23,6 @@ export default function DiskretaThumbnail() {
         },
     }
 
-    return <motion.img className={styles.diskretaThumbnail} {...{ variants, animate, ref }} src="/projects/diskreta.png" alt="Diskreta" />
+    return <motion.img className={styles.elementalFusionThumbnail} {...{ variants, animate, ref }} src="/projects/elemental-phoenix.webp" alt="Elemental Fusion" />
 
 }

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
 @import "colors.scss";
 @import "animations.scss";
+@import "mixin";
 
 html,
 body,
@@ -37,7 +38,7 @@ body {
     max-height: -webkit-fill-available;
   }
 
-  @media (min-width: 768px) {
+  @include screen-md {
     font-size: 1.1em;
   }
 }

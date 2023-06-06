@@ -1,6 +1,7 @@
 @use "sass:color";
 @import "colors.scss";
 @import "animations.scss";
+@import "mixin";
 
 .flex-section {
   display: flex;
@@ -37,14 +38,14 @@
 .hero {
   --dimension: 80vmin;
 
-  @media (min-width: 768px) {
+  @include screen-md {
     --dimension: 50vmin;
   }
   min-height: 90vh;
   transform: translateZ(-1px) scale(2);
 
   @extend .flex-section;
-  @media (min-width: 768px) {
+  @include screen-md {
     flex-direction: row;
   }
 
@@ -135,7 +136,7 @@
     align-items: center;
     margin-top: 2em;
 
-    @media (min-width: 768px) {
+    @include screen-md {
       grid-template: 33.333% 33.334% 33.333% / repeat(4, 25%);
       // grid-template: 33.333% 33.334% 33.333% / repeat(5, 20%);
       padding-left: 10vh;
@@ -149,7 +150,7 @@
       margin: 1em 0px;
 
       img {
-        @media (min-width: 768px) {
+        @include screen-md {
           transform: scale(0.9);
         }
       }
@@ -197,65 +198,80 @@
 
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+
+    gap: 1.25em;
 
     > p {
-      margin-inline: 1em;
-
-      @media (min-width: 768px) {
-        padding-inline: 2em;
+      @include screen-md {
+        // padding-inline: 2em;
       }
     }
 
     .project {
       display: flex;
       justify-content: space-between;
-      gap: 2ch;
-      @media (min-width: 768px) {
-        padding-inline: 4em;
+      gap: 4ch;
+
+      @include screen-md {
+        flex-basis: calc(50% - 2ch);
+        margin-bottom: 1em;
+        height: 20vh;
       }
 
-      width: 70vw;
-      height: 20vh;
-      margin: 1em;
-
       .imgWrapper {
-        flex-basis: 35%;
+        min-width: 130px;
+        max-width: 130px;
         display: grid;
         place-items: center;
-        .square {
-          position: absolute;
-          border: 5px solid rgb(255, 196, 0);
-          inset: -10%;
-          @media (min-width: 768px) {
-            inset: -15%;
-          }
-          animation: rotating 4s ease-in-out forwards;
-          @keyframes rotating {
-            0% {
-              transform: rotate(0deg);
-            }
-            100% {
-              transform: rotate(90deg);
-            }
-          }
-        }
-        img {
-          width: 100%;
-          max-width: 160px;
-          margin: auto;
 
-          &[src*="diskreta"] {
-            border-radius: 1.5em;
-          }
+        > * {
+          max-width: 100%;
+        }
+
+        .diskretaThumbnail {
+          border-radius: 1.5em;
+        }
+
+        .elementalFusionThumbnail {
+          object-position: 26% 44%;
+          border-radius: 1.5em;
+          object-fit: none;
         }
 
         .musikMenuThumbnail {
           position: relative;
-          width: 60px;
-          height: 60px;
-          @media (min-width: 768px) {
+          width: 120px;
+          height: 120px;
+          svg {
+            width: 80px !important;
+            height: 80px !important;
+          }
+          display: grid;
+          place-items: center;
+
+          .square {
+            position: absolute;
+            border: 5px solid rgb(255, 196, 0);
+            inset: 0%;
+            animation: rotating 4s ease-in-out forwards;
+            @keyframes rotating {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(90deg);
+              }
+            }
+          }
+
+          @include screen-md {
             width: 120px;
             height: 120px;
+            svg {
+              width: 100px !important;
+              height: 100px !important;
+            }
           }
         }
       }
@@ -266,15 +282,13 @@
         justify-content: center;
         align-items: flex-start;
         flex-basis: 65%;
-        // padding: 1em;
-
-        @media (min-width: 768px) {
-          // padding: 2em;
-        }
       }
 
       &:nth-of-type(odd) {
         flex-direction: row-reverse;
+        @include screen-md {
+          flex-direction: row;
+        }
       }
     }
   }
@@ -291,6 +305,29 @@
     padding: 4em;
     color: $white;
 
+    &[open] {
+      animation: fadeIn 0.5s ease-in-out forwards;
+      &.closing {
+        animation: fadeOut 0.5s ease-in-out forwards;
+      }
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+
     &::-webkit-scrollbar {
       width: 0px;
     }
@@ -300,7 +337,7 @@
     }
 
     .modalMediaWrapper {
-      height: 50vh;
+      height: 35vh;
       display: flex;
       justify-content: center;
       img {
@@ -350,12 +387,11 @@
         line-height: 2em;
         &::after {
           content: "";
+          position: absolute;
+          top: 100%;
           display: block;
           width: 90%;
           height: 1px;
-          // background-color: hsla(100, 100%, 100%, 0.5);
-          position: absolute;
-          top: 100%;
           background: linear-gradient(to right, hsla(100, 100%, 100%, 0.5), transparent);
         }
       }
@@ -363,12 +399,12 @@
 
     .dialogClose {
       position: absolute;
+      top: 1em;
+      right: 1em;
       background: transparent;
       outline-color: transparent;
       box-shadow: none;
       border: none;
-      top: 1em;
-      right: 1em;
       cursor: pointer;
       color: $white;
       font-size: 2em;

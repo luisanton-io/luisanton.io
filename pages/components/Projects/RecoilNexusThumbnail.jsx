@@ -13,7 +13,7 @@ function Box(props) {
     })
 
     useThree(({ camera }) => {
-        camera.position.set(0, 0, isMobile ? 3 : 1.5)
+        camera.position.set(0, 0, isMobile ? 3 : 1.75)
     });
 
     const texture = useLoader(TextureLoader, 'projects/npmjs-cube.png')
@@ -27,15 +27,9 @@ function Box(props) {
 }
 
 export default function RecoilNexusThumbnail() {
-    // return <img src="/projects/diskreta.png" alt="Diskreta" />
-
-
-    return <Canvas>
+    return <Canvas style={{ minWidth: 140 }}>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        {/* <Box position={[-1.2, 0, 0]} /> */}
         <Box position={[0, 0, 0]} />
-
-        {/* <OrbitControls /> */}
     </Canvas>
 }
