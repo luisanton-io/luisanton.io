@@ -1,7 +1,6 @@
-import { motion, useAnimation } from "framer-motion"
-import { useEffect } from "react"
-import { useInView } from "react-intersection-observer"
-import styles from "../../../styles/index.module.scss"
+import { motion } from "framer-motion"
+import styles from "./styles.module.scss"
+
 import useInViewAnimation from "../../hooks/useInViewAnimation"
 
 function ElementalFusionThumbnail() {

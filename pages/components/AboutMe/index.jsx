@@ -1,5 +1,5 @@
-import styles from "../../styles/index.module.scss"
-import useInViewAnimation from "../hooks/useInViewAnimation"
+import styles from "./styles.module.scss"
+import useInViewAnimation from "../../hooks/useInViewAnimation"
 import { motion } from 'framer-motion'
 
 export default function AboutMe() {

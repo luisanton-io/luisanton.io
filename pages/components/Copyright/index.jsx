@@ -1,6 +1,6 @@
-import styles from '../../styles/index.module.scss'
+import styles from './styles.module.scss'
 import { motion } from 'framer-motion'
-import useInViewAnimation from '../hooks/useInViewAnimation'
+import useInViewAnimation from '../../hooks/useInViewAnimation'
 export default function Copyright() {
     const animationProps = useInViewAnimation({
         hidden: { opacity: 0 },

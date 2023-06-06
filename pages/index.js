@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../styles/index.module.scss'
+import styles from './styles.module.scss'
 import Hero from './components/Hero'
 import AboutMe from './components/AboutMe'
 import Tech from './components/Tech'

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
-import styles from "../../styles/index.module.scss"
+import styles from "./styles.module.scss"
+import Image from "next/image"
+import me from "./me.png"
 
 export default function Hero() {
     const [tint, setTint] = useState(0)
@@ -14,7 +16,7 @@ export default function Hero() {
         <div className="scale-in-center">
             <div className={styles.imgWrapper}>
                 <div style={{ '--tint': tint }}>
-                    <img src="/me.png" alt="Luis Antonio" />
+                    <Image src={me} alt="Luis Antonio" />
                 </div>
             </div>
         </div>

@@ -1,9 +1,7 @@
-import { motion, useAnimation } from "framer-motion"
-import { useEffect } from "react"
-import { useInView } from "react-intersection-observer"
-import styles from "../../../styles/index.module.scss"
-import LottieEq from "../LottieEq"
+import { motion } from "framer-motion"
 import useInViewAnimation from "../../hooks/useInViewAnimation"
+import LottieEq from "./LottieEq"
+import styles from "./styles.module.scss"
 
 function MusikMenuThumbnail() {
     const { inView, ...animationProps } = useInViewAnimation({

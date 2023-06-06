@@ -2,7 +2,7 @@ import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber'
 import { useEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { TextureLoader } from 'three'
-import styles from "../../../styles/index.module.scss"
+import styles from "./styles.module.scss"
 
 function Box(props) {
     const ref = useRef()

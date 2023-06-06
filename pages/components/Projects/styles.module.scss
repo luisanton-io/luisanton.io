@@ -1,0 +1,247 @@
+@import "colors";
+// @import "animations";
+@import "mixin";
+
+.projects {
+    @include flex-section;
+
+    --bg: #1d343991;
+    background-color: var(--bg);
+    backdrop-filter: blur(16px);
+    clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0 97%);
+    padding: 3em;
+    min-height: 90vh;
+
+    a {
+        color: $link;
+        cursor: pointer;
+    }
+
+    .wrapper {
+        margin-top: 2em;
+        max-width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        gap: 1.25em;
+
+        > p {
+            text-align: center;
+            width: 100%;
+        }
+
+        .project {
+            display: flex;
+            justify-content: space-between;
+            gap: 4ch;
+
+            @include screen-md {
+                flex-basis: calc(50% - 2ch);
+                margin-bottom: 1em;
+                height: 20vh;
+            }
+
+            .imgWrapper {
+                min-width: 130px;
+                max-width: 130px;
+                display: grid;
+                place-items: center;
+
+                > * {
+                    max-width: 100%;
+                }
+
+                .diskretaThumbnail {
+                    border-radius: 1.5em;
+                }
+
+                .elementalFusionThumbnail {
+                    object-position: 26% 44%;
+                    border-radius: 1.5em;
+                    object-fit: none;
+                }
+
+                .musikMenuThumbnail {
+                    position: relative;
+                    width: 120px;
+                    height: 120px;
+                    svg {
+                        width: 80px !important;
+                        height: 80px !important;
+                    }
+                    display: grid;
+                    place-items: center;
+
+                    .square {
+                        position: absolute;
+                        border: 5px solid rgb(255, 196, 0);
+                        inset: 0%;
+                        animation: rotating 3s cubic-bezier(0.53, 0, 0.01, 1.07) forwards;
+                        @keyframes rotating {
+                            0% {
+                                transform: rotate(-90deg);
+                                opacity: 0;
+                            }
+                            100% {
+                                transform: rotate(0deg);
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                    @include screen-md {
+                        width: 120px;
+                        height: 120px;
+                        svg {
+                            width: 100px !important;
+                            height: 100px !important;
+                        }
+                    }
+                }
+            }
+
+            .caption {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                flex-basis: 65%;
+            }
+
+            &:nth-of-type(odd) {
+                flex-direction: row-reverse;
+                @include screen-md {
+                    flex-direction: row;
+                }
+            }
+        }
+    }
+
+    & + dialog {
+        position: relative;
+        a {
+            color: $link;
+            cursor: pointer;
+        }
+        background: rgba(13, 13, 13, 0.8);
+        backdrop-filter: blur(16px);
+        border: none;
+        border-radius: 0px;
+        padding: 4em;
+        color: $white;
+
+        &[open] {
+            animation: fadeIn 0.5s ease-in-out forwards;
+            &.closing {
+                animation: fadeOut 0.5s ease-in-out forwards;
+            }
+            @keyframes fadeOut {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        &::backdrop {
+            background: rgba(13, 13, 13, 0.3);
+        }
+
+        .modalMediaWrapper {
+            height: 35vh;
+            display: flex;
+            justify-content: center;
+            img {
+                max-width: 100%;
+            }
+        }
+
+        ul {
+            padding-inline-start: unset;
+        }
+
+        ul.links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2ch;
+            li {
+                list-style-type: none;
+                width: 100px;
+                height: 100px;
+                border: 1px solid hsla(100, 100%, 100%, 0.5);
+                padding: 1em;
+                display: grid;
+                place-items: center;
+                text-align: center;
+            }
+        }
+
+        ul.features {
+            flex-basis: 60%;
+            margin-inline-start: 4em;
+            margin-inline-end: 2em;
+            li {
+                margin-bottom: 1em;
+            }
+        }
+
+        .stack {
+            display: flex;
+            flex-grow: 1;
+            > div {
+                flex-grow: 1;
+            }
+            ul li {
+                list-style: none;
+                position: relative;
+                line-height: 2em;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    display: block;
+                    width: 90%;
+                    height: 1px;
+                    background: linear-gradient(to right, hsla(100, 100%, 100%, 0.5), transparent);
+                }
+            }
+        }
+
+        .dialogClose {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            background: transparent;
+            outline-color: transparent;
+            box-shadow: none;
+            border: none;
+            cursor: pointer;
+            color: $white;
+            font-size: 2em;
+            transition: transform 0.5s ease-in-out;
+            &:hover {
+                transform: scale(1.1);
+            }
+            &::after {
+                content: "×";
+            }
+        }
+    }
+}

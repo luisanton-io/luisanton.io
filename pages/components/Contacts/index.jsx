@@ -1,7 +1,7 @@
 import { useInView } from 'react-intersection-observer'
-import styles from '../../styles/index.module.scss'
-import useInViewAnimation from '../hooks/useInViewAnimation'
-import Copyright from './Copyright'
+import styles from './styles.module.scss'
+import useInViewAnimation from '../../hooks/useInViewAnimation'
+import Copyright from '../Copyright'
 import { motion } from 'framer-motion'
 
 export default function Contacts() {
@@ -12,12 +12,10 @@ export default function Contacts() {
             hidden: {
                 opacity: 0,
                 translateX: 20 * -k,
-                // translateY: 50
             },
             visible: {
                 opacity: 1,
                 translateX: 0,
-                // translateY: 0,
                 transition: { duration: 1, delay: i / 4 }
             },
         })

@@ -1,7 +1,7 @@
 import { motion, useAnimation } from "framer-motion"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
-import styles from "../../styles/index.module.scss"
+import styles from "./styles.module.scss"
 
 const tech = [
     // ["HTML", "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"],

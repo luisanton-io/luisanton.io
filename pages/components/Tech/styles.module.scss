@@ -1,0 +1,64 @@
+@import "colors";
+@import "mixin";
+
+.tech {
+    --bg: transparent;
+    background-color: var(--bg);
+
+    @include flex-section;
+    min-height: 90vh;
+
+    h2,
+    p {
+        color: $white;
+    }
+
+    padding: 3em;
+    .techWrapper {
+        display: grid;
+        width: 100%;
+        grid-template: repeat(4, 25%) / 33.333% 33.334% 33.333%;
+        justify-items: center;
+        align-items: center;
+        margin-top: 2em;
+
+        @include screen-md {
+            grid-template: 33.333% 33.334% 33.333% / repeat(4, 25%);
+            padding-left: 10vh;
+            padding-right: 10vh;
+            max-width: 1024px;
+        }
+
+        transition: height 2s ease-in-out;
+
+        a {
+            margin: 1em 0px;
+
+            img {
+                @include screen-md {
+                    transform: scale(0.9);
+                }
+            }
+
+            span {
+                opacity: 0;
+                transform: translateY(50%);
+                transition: all 0.5s ease-in-out;
+            }
+
+            &:hover {
+                span {
+                    opacity: 1;
+                    transform: translateY(0px);
+                }
+            }
+
+            span {
+                display: none;
+                @include screen-md {
+                    display: unset;
+                }
+            }
+        }
+    }
+}

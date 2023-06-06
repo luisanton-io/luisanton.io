@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
-@import "colors.scss";
-@import "animations.scss";
+@import "colors";
+@import "animations";
 @import "mixin";
 
 html,
@@ -30,6 +30,7 @@ html {
 
 body {
   background: linear-gradient(45deg, rgba(17, 55, 126, 1) 0%, #47994d 100%);
+  // background: linear-gradient(45deg, hsl(220, 45%, 14%) 0%, hsl(124, 20%, 44%) 100%);
   background-size: 200% 100%;
   animation: slide 15s ease infinite;
   height: 100vh;

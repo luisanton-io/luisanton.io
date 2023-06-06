@@ -1,12 +1,11 @@
-import { useEffect, useRef, useState } from "react"
-import styles from "../../../styles/index.module.scss"
+import { motion } from "framer-motion"
+import { useRef, useState } from "react"
+import useInViewAnimation from "../../hooks/useInViewAnimation"
 import Diskreta from "./Diskreta"
 import ElementalFusion from "./ElementalFusion"
 import MusikMenu from "./MusikMenu"
 import RecoilNexus from "./RecoilNexus"
-import { useAnimation, motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import useInViewAnimation from "../../hooks/useInViewAnimation"
+import styles from "./styles.module.scss"
 
 function Project({ name, description, Thumbnail, openModal, i }) {
 

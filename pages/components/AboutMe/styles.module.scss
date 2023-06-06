@@ -1,0 +1,28 @@
+@import "colors";
+@import "mixin";
+
+.aboutMe {
+    --bg: #1d343991;
+    background-color: var(--bg);
+    backdrop-filter: blur(16px);
+    clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0 97%);
+
+    @include flex-section;
+
+    h2,
+    p {
+        color: $white;
+        a {
+            color: #00ff84;
+        }
+    }
+
+    padding: 3em;
+
+    position: relative;
+    z-index: 1;
+
+    > div {
+        max-width: 768px;
+    }
+}

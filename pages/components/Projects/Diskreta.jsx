@@ -1,8 +1,6 @@
-import { useAnimation, motion } from "framer-motion"
-import { useEffect } from "react"
-import { useInView } from "react-intersection-observer"
-import styles from "../../../styles/index.module.scss"
+import { motion } from "framer-motion"
 import useInViewAnimation from "../../hooks/useInViewAnimation"
+import styles from "./styles.module.scss"
 
 function DiskretaThumbnail() {
 
