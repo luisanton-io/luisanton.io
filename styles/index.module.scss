@@ -294,6 +294,7 @@
   }
 
   & + dialog {
+    position: relative;
     a {
       color: $link;
       cursor: pointer;

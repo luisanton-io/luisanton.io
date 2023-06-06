@@ -1,9 +1,22 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import styles from "../../../styles/index.module.scss"
 import DiskretaThumbnail from "./DiskretaThumbnail"
 import MusikMenuThumbnail from "./MusikMenuThumbnail"
 import RecoilNexusThumbnail from "./RecoilNexusThumbnail"
 import ElementalFusionThumbnail from "./ElementalFusionThumbnail"
+
+function ScrambledNumbers() {
+    const [number, setNumber] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setNumber(Math.floor(Math.random() * 99999))
+        }, 10)
+        return () => clearInterval(interval)
+    }, [])
+
+    return number
+}
 
 const projects = [
     {
@@ -13,7 +26,7 @@ const projects = [
                 <p>An anonymous E2E encrypted chat system. <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
             </>
         },
-        modalContent: <>
+        ModalContent: () => <>
             <div className={styles.modalMediaWrapper}>
                 <img src="/projects/diskreta.png" alt="Diskreta" />
             </div>
@@ -60,7 +73,7 @@ const projects = [
                 <p>A sleek link-in-bio service for musicians <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
             </>
         },
-        modalContent: <>
+        ModalContent: () => <>
             <div className={styles.modalMediaWrapper}>
                 <img src="/projects/diskreta.png" alt="Diskreta" />
             </div>
@@ -73,7 +86,6 @@ const projects = [
                     <li>seamlessly integrates with streaming platforms to help musicians create new music links with ease</li>
                     <li>lets artists share with a single link their full catalog with all relevant external platform links</li>
                     <li>fully typed</li>
-                    {/* <li>users' data never leaves their device and gets military grade encrypted with AES-256</li> */}
                 </ul>
                 <div className={styles.stack}>
                     <div className={styles.frontend}>
@@ -105,24 +117,30 @@ const projects = [
                 <p>A simple Typescript module to update Recoil atoms outside React components. <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
             </>
         },
-        modalContent: <>
-            <div className={styles.modalMediaWrapper}>
-                <img src="/projects/diskreta.png" alt="Diskreta" />
-            </div>
-            <ul className={styles.links}>
-                <li><a href="https://diskreta.vercel.app">Live Version </a></li>
-                <li><a href="https://github.com/luisanton-io/fe-diskreta">Frontend Repo</a></li>
-                <li><a href="https://github.com/luisanton-io/be-diskreta">Backend Repo</a></li>
-            </ul>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <ul className={styles.features}>
-                    <li>open source, anonymous, end-to-end encrypted chat system</li>
-                    <li>supports real-time text, images, read receipts, reactions</li>
-                    <li>same-device password recovery system, based on <a href="https://stackoverflow.com/q/72047474/11783958">deterministically generated RSA keys</a>, inspired by crypto wallets recovery systems</li>
-                    <li>users' data never leaves their device and gets military grade encrypted with AES-256</li>
+        ModalContent: () => {
+            const [downloads, setDownloads] = useState(0)
+
+            useEffect(() => {
+                fetch("/api/nexus-downloads").then(r => r.json()).then(setDownloads)
+            }, [])
+
+            return <>
+                <div className={styles.modalMediaWrapper}>
+                    <img src="/projects/diskreta.png" alt="Diskreta" />
+                </div >
+                <ul className={styles.links}>
+                    <li><a href="https://npmjs.com/package/recoil-nexus">NPM</a></li>
+                    <li><a href="https://github.com/luisanton-io/recoil-nexus">Github</a></li>
                 </ul>
-            </div>
-        </>,
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <ul className={styles.features}>
+                        <li>creates getters/setters to read and update Recoil atoms outside of React components</li>
+                        <li>actively maintained</li>
+                        <li>downloaded {!downloads ? <ScrambledNumbers /> : downloads.toLocaleString()} times in the last year</li>
+                    </ul>
+                </div>
+            </>
+        },
         Thumbnail: RecoilNexusThumbnail
     },
     {
@@ -132,7 +150,7 @@ const projects = [
                 <p>A simple WalletConnect demo with AI generated assets. <a style={{ display: 'block' }} onClick={openModal}>Read more.</a></p>
             </>
         },
-        modalContent: <>
+        ModalContent: () => <>
             <div className={styles.modalMediaWrapper}>
                 <img src="/projects/diskreta.png" alt="Diskreta" />
             </div>
@@ -173,14 +191,16 @@ const projects = [
 ]
 
 
-export default function Projects() {
+export default function Projects({ recoilNexusDownloads }) {
 
-    const [modalContent, setModalContent] = useState(null)
+    console.table({ recoilNexusDownloads })
+
+    const [ModalContent, setModalContent] = useState(() => () => null)
     const [closing, setClosing] = useState(false)
     const dialogRef = useRef()
 
-    const openModal = modalContent => () => {
-        setModalContent(modalContent)
+    const openModal = ModalContent => () => {
+        setModalContent(() => ModalContent)
         dialogRef.current?.showModal()
     }
 
@@ -188,7 +208,7 @@ export default function Projects() {
         if (closing) {
             dialogRef.current?.close()
             setClosing(false)
-            setModalContent(null)
+            setModalContent(() => () => null)
         }
     }
 
@@ -200,7 +220,7 @@ export default function Projects() {
                     While a significant portion of my past work is IP protected, here is a selection of personal projects I have been working on.
                 </p>
                 {
-                    projects.map(({ name, Description, modalContent, Thumbnail }, i) => (
+                    projects.map(({ name, Description, ModalContent, Thumbnail }, i) => (
                         <div key={i} className={styles.project}>
 
                             <div className={styles.imgWrapper}>
@@ -208,7 +228,7 @@ export default function Projects() {
                             </div>
                             <div className={styles.caption}>
                                 <h3>{name}</h3>
-                                <Description openModal={openModal(modalContent)} />
+                                <Description openModal={openModal(ModalContent)} />
                             </div>
                         </div>
                     ))
@@ -218,7 +238,7 @@ export default function Projects() {
         </div >
         <dialog ref={dialogRef} className={closing ? styles.closing : ""} onAnimationEnd={handleAnimationEnd}>
             <button className={styles.dialogClose} onClick={() => setClosing(true)} />
-            {modalContent}
+            <ModalContent />
         </dialog>
     </>
 }
