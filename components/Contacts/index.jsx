@@ -3,6 +3,7 @@ import styles from './styles.module.scss'
 import useInViewAnimation from '../../hooks/useInViewAnimation'
 import Copyright from '../Copyright'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Contacts() {
 
@@ -40,14 +41,15 @@ export default function Contacts() {
 
         <div>
             <motion.a target="_blank" {...animationProps.linkedin} href="https://linkedin.com/in/luis-antonio-canettoli">
-                <img alt="Linked In" src="/linkedin.png" />
+                <Image alt="Linked In" src="/linkedin.png" width={84} height={21} />
             </motion.a>
             <motion.a target="_blank" {...animationProps.github} href="https://github.com/luisanton-io">
-                <img alt="github" src="/github.svg" style={{ width: '20px' }} />
-                <img alt="github" src="/github.png" style={{ width: '75px' }} />
+                {/* <img alt="github" src="/github.svg" style={{ width: '20px' }} /> */}
+                <Image alt="github" src="/github.svg" width={20} height={20} />
+                <Image alt="github" src="/github.png" width={75} height={31} />
             </motion.a>
             <motion.a target="_blank" {...animationProps.stackoverflow} href="https://stackoverflow.com/users/11783958/luis-antonio-canettoli-ordo%c3%b1ez">
-                <img alt="Stack Overflow" src="/stack-overflow.svg" style={{ width: '155px', marginBottom: '0.4em' }} />
+                <Image alt="Stack Overflow" src="/stack-overflow.svg" width={155} height={30} style={{ marginBottom: '0.4em' }} />
             </motion.a>
         </div>
 

@@ -2,18 +2,15 @@ import { motion, useAnimation } from "framer-motion"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import styles from "./styles.module.scss"
+import Image from "next/image"
+import icons from "./images"
 
 const tech = [
-    // ["HTML", "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"],
-    // ["CSS", "https://developer.mozilla.org/en-US/docs/Web/CSS"],
     ["React", "https://reactjs.org/"],
     ["Bootstrap", "https://getbootstrap.com/"],
     ["SCSS", "https://sass-lang.com/"],
     ["Redux", "https://redux.js.org/"],
     ["Recoil", "https://recoiljs.org/"],
-    // ["TailwindCSS", "https://tailwindcss.com/"],
-    // ["Material UI", "https://mui.com"],
-    // ["Javascript", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"],
     ["Angular", "https://angular.io/"],
     ["Typescript", "https://www.typescriptlang.org/"],
     ["Node JS", "https://nodejs.org/"],
@@ -21,8 +18,6 @@ const tech = [
     ["PostgreSQL", "https://www.postgresql.org/"],
     ["Solidity", "https://soliditylang.org/"],
     ["Hardhat", "https://hardhat.org/"],
-    // ["Ethers", "https://ethers.org/"],
-    // ["Remix", "https://remix.ethereum.org/"],
 ]
 
 export default function Tech() {
@@ -57,7 +52,7 @@ export default function Tech() {
                             }}
                             target="_blank"
                         >
-                            <img src={`/tech/${name}.png`} alt={name} />
+                            <Image src={icons[name]} alt={name} />
                             <span>{name}</span>
                         </motion.a>
                     ))

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion"
 import { useRef, useState } from "react"
 import useInViewAnimation from "../../hooks/useInViewAnimation"
-import Diskreta from "./Diskreta"
-import ElementalFusion from "./ElementalFusion"
-import MusikMenu from "./MusikMenu"
-import RecoilNexus from "./RecoilNexus"
+import { Diskreta } from "./Diskreta"
+import { ElementalFusion } from "./ElementalFusion"
+import { MusikMenu } from "./MusikMenu"
+import { RecoilNexus } from "./RecoilNexus"
 import styles from "./styles.module.scss"
 
 function Project({ name, description, Thumbnail, openModal, i }) {
