@@ -81,11 +81,9 @@ function ElementalFusionModalContent() {
     </>
 }
 
-const ElementalFusion = {
+export const ElementalFusion = {
     name: "Elemental Fusion",
     description: "A simple WalletConnect demo with AI generated assets.",
     ModalContent: ElementalFusionModalContent,
     Thumbnail: ElementalFusionThumbnail
 }
-
-export default ElementalFusion

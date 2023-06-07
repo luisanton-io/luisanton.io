@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import styles from './styles.module.scss'
-import Hero from './components/Hero'
-import AboutMe from './components/AboutMe'
-import Tech from './components/Tech'
-import Contacts from './components/Contacts'
-import Projects from './components/Projects'
+import Hero from '../components/Hero'
+import AboutMe from '../components/AboutMe'
+import Tech from '../components/Tech'
+import Contacts from '../components/Contacts'
+import Projects from '../components/Projects'
 
 export default function Home() {
   return (

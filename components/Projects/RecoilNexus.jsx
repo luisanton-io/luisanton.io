@@ -86,11 +86,10 @@ function RecoilNexusModalContent() {
 }
 
 
-const RecoilNexus = {
+export const RecoilNexus = {
     name: "recoil-nexus",
     description: "A simple Typescript module to update Recoil atoms outside React components.",
     ModalContent: RecoilNexusModalContent,
     Thumbnail: RecoilNexusThumbnail
 }
 
-export default RecoilNexus
