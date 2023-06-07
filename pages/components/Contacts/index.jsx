@@ -28,31 +28,25 @@ export default function Contacts() {
         stackoverflow: useInViewAnimation(variants(4)),
     }
 
-    console.table(animationProps)
-
-    const { ref, inView } = useInView()
-
-    console.table({ inView })
-
-    return <div className={styles.contacts} ref={ref}>
+    return <div className={styles.contacts}>
         <h2>contacts</h2>
 
         <p>Feel free to contact me:</p>
         <div>
-            <motion.a {...animationProps.email} href="mailto:hello@luisanton.io" style={{ width: 'calc(155px + 6ch)' }}>hello@luisanton.io</motion.a>
+            <motion.a target="_blank" {...animationProps.email} href="mailto:hello@luisanton.io" style={{ width: 'calc(155px + 6ch)' }}>hello@luisanton.io</motion.a>
         </div>
 
         <h4 style={{ marginTop: '2em' }}>You can also find me on:</h4>
 
         <div>
-            <motion.a {...animationProps.linkedin} href="https://linkedin.com/in/luis-antonio-canettoli">
+            <motion.a target="_blank" {...animationProps.linkedin} href="https://linkedin.com/in/luis-antonio-canettoli">
                 <img alt="Linked In" src="/linkedin.png" />
             </motion.a>
-            <motion.a {...animationProps.github} href="https://github.com/luisanton-io">
+            <motion.a target="_blank" {...animationProps.github} href="https://github.com/luisanton-io">
                 <img alt="github" src="/github.svg" style={{ width: '20px' }} />
                 <img alt="github" src="/github.png" style={{ width: '75px' }} />
             </motion.a>
-            <motion.a {...animationProps.stackoverflow} href="https://stackoverflow.com/users/11783958/luis-antonio-canettoli-ordo%c3%b1ez">
+            <motion.a target="_blank" {...animationProps.stackoverflow} href="https://stackoverflow.com/users/11783958/luis-antonio-canettoli-ordo%c3%b1ez">
                 <img alt="Stack Overflow" src="/stack-overflow.svg" style={{ width: '155px', marginBottom: '0.4em' }} />
             </motion.a>
         </div>

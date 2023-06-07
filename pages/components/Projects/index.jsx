@@ -36,9 +36,7 @@ function Project({ name, description, Thumbnail, openModal, i }) {
     )
 }
 
-export default function Projects({ recoilNexusDownloads }) {
-
-    console.table({ recoilNexusDownloads })
+export default function Projects() {
 
     const [ModalContent, setModalContent] = useState(() => () => null)
     const [closing, setClosing] = useState(false)
@@ -70,7 +68,9 @@ export default function Projects({ recoilNexusDownloads }) {
                         MusikMenu,
                         RecoilNexus,
                         ElementalFusion
-                    ].map(({ ModalContent, ...props }, i) => <Project key={`prj-${i}`} openModal={openModal(ModalContent)} i={i} {...props} />)
+                    ].map(({ ModalContent, ...props }, i) => (
+                        <Project key={`prj-${i}`} openModal={openModal(ModalContent)} i={i} {...props} />
+                    ))
                 }
 
             </div>

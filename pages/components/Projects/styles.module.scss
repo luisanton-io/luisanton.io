@@ -3,12 +3,10 @@
 @import "mixin";
 
 .projects {
+    --bg: transparent;
+    background-color: var(--bg);
     @include flex-section;
 
-    --bg: #1d343991;
-    background-color: var(--bg);
-    backdrop-filter: blur(16px);
-    clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0 97%);
     padding: 3em;
     min-height: 90vh;
 
@@ -121,16 +119,21 @@
 
     & + dialog {
         position: relative;
-        a {
-            color: $link;
-            cursor: pointer;
-        }
+        min-height: 80vh;
         background: rgba(13, 13, 13, 0.8);
         backdrop-filter: blur(16px);
         border: none;
         border-radius: 0px;
-        padding: 4em;
+        padding: 1em 2ch;
+        @include screen-md {
+            padding: 4em;
+        }
         color: $white;
+
+        a {
+            color: $link;
+            cursor: pointer;
+        }
 
         &[open] {
             animation: fadeIn 0.5s ease-in-out forwards;
@@ -163,48 +166,100 @@
             background: rgba(13, 13, 13, 0.3);
         }
 
-        .modalMediaWrapper {
-            height: 35vh;
+        .modalContentWrapper {
+            overflow-y: auto;
             display: flex;
             justify-content: center;
+            flex-direction: column;
+
+            @include screen-md {
+                flex-direction: row;
+            }
+
             img {
                 max-width: 100%;
+                object-fit: contain;
+                height: auto;
+            }
+        }
+
+        .textWrapper {
+            margin: 1em;
+            @include screen-md {
+                margin: unset;
+                padding: 1em 1ch 1em 8ch;
+                max-height: 75vh;
+                overflow-y: auto;
+                &::-webkit-scrollbar {
+                    width: 1px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: $link;
+                }
+            }
+
+            h1 {
+                position: relative;
+                color: $link;
+                line-height: 2em;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    display: block;
+                    width: 90%;
+                    height: 1px;
+                    background: linear-gradient(to right, $link, transparent);
+                }
             }
         }
 
         ul {
-            padding-inline-start: unset;
+            padding-inline-start: 0px;
         }
 
         ul.links {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            @include screen-md {
+                gap: 3ch;
+                justify-content: flex-start;
+            }
             flex-wrap: wrap;
-            gap: 2ch;
             li {
                 list-style-type: none;
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
+                padding: 0.5em;
+                @include screen-md {
+                    width: 100px;
+                    height: 100px;
+                    padding: 1em;
+                }
                 border: 1px solid hsla(100, 100%, 100%, 0.5);
-                padding: 1em;
                 display: grid;
                 place-items: center;
                 text-align: center;
             }
         }
 
-        ul.features {
+        .features {
             flex-basis: 60%;
-            margin-inline-start: 4em;
-            margin-inline-end: 2em;
-            li {
-                margin-bottom: 1em;
+            // margin-inline-start: 4em;
+            // margin-inline-end: 2em;
+            h4 {
+                font-size: 1.1em;
+            }
+            ul {
+                padding-inline-start: 3ch;
+                li {
+                    margin-bottom: 0.25em;
+                }
             }
         }
 
         .stack {
             display: flex;
-            flex-grow: 1;
             > div {
                 flex-grow: 1;
             }
@@ -228,6 +283,7 @@
             position: absolute;
             top: 1em;
             right: 1em;
+            z-index: 99;
             background: transparent;
             outline-color: transparent;
             box-shadow: none;

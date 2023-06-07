@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { TextureLoader } from 'three'
 import styles from "./styles.module.scss"
+import recoilNexusGif from "./assets/recoil-nexus.gif"
+import Image from 'next/image'
 
 function Box(props) {
     const ref = useRef()
@@ -14,7 +16,7 @@ function Box(props) {
     })
 
     useThree(({ camera }) => {
-        camera.position.set(0, 0, isMobile ? 3 : 1.75)
+        camera.position.set(0, 0, isMobile ? 2 : 1.75)
     });
 
     const texture = useLoader(TextureLoader, 'projects/npmjs-cube.png')
@@ -51,7 +53,7 @@ function ScrambledNumbers() {
     return number
 }
 
-function RecoilNexusModalContent() {
+function __RecoilNexusModalContent() {
     const [downloads, setDownloads] = useState(0)
 
     useEffect(() => {
@@ -62,16 +64,41 @@ function RecoilNexusModalContent() {
         <div className={styles.modalMediaWrapper}>
             <img src="/projects/diskreta.png" alt="Diskreta" />
         </div >
-        <ul className={styles.links}>
-            <li><a href="https://npmjs.com/package/recoil-nexus">NPM</a></li>
-            <li><a href="https://github.com/luisanton-io/recoil-nexus">Github</a></li>
-        </ul>
+
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <ul className={styles.features}>
-                <li>creates getters/setters to read and update Recoil atoms outside of React components</li>
-                <li>actively maintained</li>
-                <li>downloaded {!downloads ? <ScrambledNumbers /> : downloads.toLocaleString()} times in the last year</li>
-            </ul>
+
+        </div>
+    </>
+}
+
+function RecoilNexusModalContent() {
+    const [downloads, setDownloads] = useState(0)
+
+    useEffect(() => {
+        fetch("/api/nexus-downloads").then(r => r.json()).then(setDownloads)
+    }, [])
+
+    return <>
+        <div className={styles.modalContentWrapper}>
+
+            <Image src={recoilNexusGif} alt="Recoil Nexus" />
+
+            <div className={styles.textWrapper}>
+                <h1>Recoil Nexus</h1>
+                <ul className={styles.links}>
+                    <li><a target="_blank" href="https://npmjs.com/package/recoil-nexus">NPM</a></li>
+                    <li><a target="_blank" href="https://github.com/luisanton-io/recoil-nexus">Github</a></li>
+                </ul>
+
+                <div className={styles.features}>
+                    <h4>Update Recoil from outside React</h4>
+                    <ul>
+                        <li>Enables reading and updating of Recoil atoms outside of React components</li>
+                        <li>Actively maintained to ensure compatibility for the latest Recoil versions and support for users feature requests.</li>
+                        <li>Downloaded {!downloads ? <ScrambledNumbers /> : downloads.toLocaleString()} times in the last year</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </>
 }

@@ -2,8 +2,13 @@
 @import "mixin";
 
 .tech {
-    --bg: transparent;
+    // --bg: transparent;
+    // background-color: var(--bg);
+
+    --bg: #1d343991;
     background-color: var(--bg);
+    backdrop-filter: blur(16px);
+    clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0 97%);
 
     @include flex-section;
     min-height: 90vh;
