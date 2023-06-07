@@ -1,4 +1,4 @@
-export default async (req, res) => {
+const getNexusDownloads = async (req, res) => {
     const today = new Date()
     const dayOfTheMonth = String(today.getDate()).padStart(2, '0')
     const month = String(today.getMonth() + 1).padStart(2, '0')
@@ -10,3 +10,5 @@ export default async (req, res) => {
 
     return res.status(200).send(Object.values(data).reduce((a, b) => a + b, 0))
 }
+
+export default getNexusDownloads

@@ -81,32 +81,11 @@ function ElementalFusionModalContent() {
     </>
 }
 
-function __ElementalFusionModalContent() {
-    return <>
-        <div className={styles.modalMediaWrapper}>
-            <img src="/projects/diskreta.png" alt="Diskreta" />
-        </div>
-        <ul className={styles.links}>
-            <li><a href="https://diskreta.vercel.app">Live Version </a></li>
-            <li><a href="https://github.com/luisanton-io/fe-diskreta">Repo</a></li>
-        </ul>
-        <div style={{ display: 'flex' }}>
-            <ul className={styles.features}>
-                <li>deployed on Mumbai</li>
-                <li>implemented ERC-1155 tokens: Fire Sprites, Aqua Delfin and Earth Golem can be minted once per minute</li>
-                <li>Steam Serpent, Mud Titan, Lava Fiend and Elemental Phoenix can be minted without cooldown timer, but only burning other tokens</li>
-                <li>mutation tested using Vertigo + SuMo</li>
-                <li>contract is verified on PolygonScan</li>
-            </ul>
-
-
-        </div>
-    </>
-}
-
-export default {
+const ElementalFusion = {
     name: "Elemental Fusion",
     description: "A simple WalletConnect demo with AI generated assets.",
     ModalContent: ElementalFusionModalContent,
     Thumbnail: ElementalFusionThumbnail
 }
+
+export default ElementalFusion

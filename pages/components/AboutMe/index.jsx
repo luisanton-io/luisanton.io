@@ -26,9 +26,9 @@ export default function AboutMe() {
             <p>
                 Recently, I have been immersing myself in Solidity and exploring the exciting possibilities of Web3 technologies.
             </p>
-            <p>Regarding my most recent experiences, up until 2022 I have tutored and taught in the Full Stack Course at <a href="https://strive.school" target="_blank">Epicode Global</a>, during which we introduced students to the MERN Stack.
+            <p>Regarding my most recent experiences, up until 2022 I have tutored and taught in the Full Stack Course at <a href="https://strive.school" target="_blank" rel="noreferrer">Epicode Global</a>, during which we introduced students to the MERN Stack.
             </p>
-            <p>Between 2022 and 2023, I was hired by <a href="https://reasonlabs.com" target="_blank">ReasonLabs</a> as a member of the on-site Frontend team in Dubai, UAE.
+            <p>Between 2022 and 2023, I was hired by <a href="https://reasonlabs.com" target="_blank" rel="noreferrer">ReasonLabs</a> as a member of the on-site Frontend team in Dubai, UAE.
             </p>
             <p>I have worked for individuals and organizations in New York and Florida as well as worldwide: let’s chat together and I’ll tell you how I can help.</p>
         </motion.div>

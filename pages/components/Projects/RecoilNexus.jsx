@@ -53,24 +53,6 @@ function ScrambledNumbers() {
     return number
 }
 
-function __RecoilNexusModalContent() {
-    const [downloads, setDownloads] = useState(0)
-
-    useEffect(() => {
-        fetch("/api/nexus-downloads").then(r => r.json()).then(setDownloads)
-    }, [])
-
-    return <>
-        <div className={styles.modalMediaWrapper}>
-            <img src="/projects/diskreta.png" alt="Diskreta" />
-        </div >
-
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-
-        </div>
-    </>
-}
-
 function RecoilNexusModalContent() {
     const [downloads, setDownloads] = useState(0)
 
@@ -104,9 +86,11 @@ function RecoilNexusModalContent() {
 }
 
 
-export default {
+const RecoilNexus = {
     name: "recoil-nexus",
     description: "A simple Typescript module to update Recoil atoms outside React components.",
     ModalContent: RecoilNexusModalContent,
     Thumbnail: RecoilNexusThumbnail
 }
+
+export default RecoilNexus

@@ -91,9 +91,11 @@ function DiskretaModalContent() {
     </>
 }
 
-export default {
+const Diskreta = {
     name: "Diskreta",
     description: "An anonymous E2E encrypted chat system.",
     Thumbnail: DiskretaThumbnail,
     ModalContent: DiskretaModalContent
 }
+
+export default Diskreta

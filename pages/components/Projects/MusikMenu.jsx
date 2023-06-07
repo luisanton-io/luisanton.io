@@ -71,9 +71,11 @@ function MusikMenuModalContent() {
     </>
 }
 
-export default {
+const MusikMenu = {
     name: "Musik Menu",
     description: "A sleek link-in-bio service for musicians.",
     ModalContent: MusikMenuModalContent,
     Thumbnail: MusikMenuThumbnail
 }
+
+export default MusikMenu
