@@ -5,15 +5,7 @@ import { isMobile } from 'react-device-detect'
 
 export default function AboutMe() {
 
-    const animationProps = useInViewAnimation(isMobile ? {
-        hidden: {
-            opacity: 0
-        },
-        visible: {
-            opacity: 1,
-            transition: { duration: 1 }
-        }
-    } : undefined)
+    const animationProps = useInViewAnimation(isMobile ? {} : undefined)
 
     return <div className={styles.aboutMe}>
         <h2>about:me</h2>
