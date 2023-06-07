@@ -38,9 +38,9 @@ function DiskretaModalContent() {
             <div className={styles.textWrapper}>
                 <h1>Diskreta</h1>
                 <ul className={styles.links}>
-                    <li><a target="_blank" href="https://diskreta.vercel.app">Live Version </a></li>
-                    <li><a target="_blank" href="https://github.com/luisanton-io/fe-diskreta">Frontend Repo</a></li>
-                    <li><a target="_blank" href="https://github.com/luisanton-io/be-diskreta">Backend Repo</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://diskreta.vercel.app">Live Version </a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://github.com/luisanton-io/fe-diskreta">Frontend Repo</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://github.com/luisanton-io/be-diskreta">Backend Repo</a></li>
                 </ul>
                 <div className={styles.stack}>
                     <div className={styles.frontend}>
@@ -71,7 +71,7 @@ function DiskretaModalContent() {
                     </ul>
                     <h4>Same-Device Password Recovery System</h4>
                     <ul>
-                        <li>Utilizes <a target="_blank" href="https://stackoverflow.com/q/72047474/11783958">deterministically generated</a> RSA keys, inspired by crypto wallet recovery systems.</li>
+                        <li>Utilizes <a target="_blank" rel="noreferrer" href="https://stackoverflow.com/q/72047474/11783958">deterministically generated</a> RSA keys, inspired by crypto wallet recovery systems.</li>
                         <li>Lets users recover passwords securely on the same device.</li>
                     </ul>
                     <h4>Enhanced Data Security</h4>

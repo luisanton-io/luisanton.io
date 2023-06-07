@@ -86,8 +86,8 @@ function RecoilNexusModalContent() {
             <div className={styles.textWrapper}>
                 <h1>Recoil Nexus</h1>
                 <ul className={styles.links}>
-                    <li><a target="_blank" href="https://npmjs.com/package/recoil-nexus">NPM</a></li>
-                    <li><a target="_blank" href="https://github.com/luisanton-io/recoil-nexus">Github</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://npmjs.com/package/recoil-nexus">NPM</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://github.com/luisanton-io/recoil-nexus">Github</a></li>
                 </ul>
 
                 <div className={styles.features}>

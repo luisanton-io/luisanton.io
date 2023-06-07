@@ -33,10 +33,10 @@ function MusikMenuModalContent() {
             <div className={styles.textWrapper}>
                 <h1>Musik Menu</h1>
                 <ul className={styles.links}>
-                    <li><a target="_blank" href="https://musik.menu">Home Page</a></li>
-                    <li><a target="_blank" href="https://musik.menu/lou-wyss">Lou Wyss</a></li>
-                    {/* <li><a target="_blank" href="https://musik.menu/gonzi">Gonzi</a></li> */}
-                    {/* <li><a target="_blank" href="https://musik.menu/luca-lee-josh">Luca Lee Josh</a></li> */}
+                    <li><a target="_blank" rel="noreferrer" href="https://musik.menu">Home Page</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://musik.menu/lou-wyss">Lou Wyss</a></li>
+                    {/* <li><a target="_blank" rel="noreferrer" href="https://musik.menu/gonzi">Gonzi</a></li> */}
+                    {/* <li><a target="_blank" rel="noreferrer" href="https://musik.menu/luca-lee-josh">Luca Lee Josh</a></li> */}
                 </ul>
                 <div className={styles.stack}>
                     <div className={styles.frontend}>

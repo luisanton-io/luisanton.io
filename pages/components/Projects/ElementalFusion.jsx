@@ -38,8 +38,8 @@ function ElementalFusionModalContent() {
             <div className={styles.textWrapper}>
                 <h1>Elemental Fusion</h1>
                 <ul className={styles.links}>
-                    <li><a target="_blank" href="https://elemental-fusion.vercel.app">Live Version </a></li>
-                    <li><a target="_blank" href="https://github.com/luisanton-io/elemental-fusion">Repo</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://elemental-fusion.vercel.app">Live Version </a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://github.com/luisanton-io/elemental-fusion">Repo</a></li>
                 </ul>
                 <div className={styles.stack}>
                     <div className={styles.frontend}>
@@ -69,7 +69,7 @@ function ElementalFusionModalContent() {
                     <ul>
                         <li>Thoroughly subjected the smart contract to mutation testing using Vertigo + SuMo, ensuring robustness and reliability.</li>
                         <li>Security vulnerabilities checked via Slither</li>
-                        <li>Verified contract authenticity and transparency by having it <a target="_blank" href="https://mumbai.polygonscan.com/address/0xA3f96e91fef535f2d2b83891658e99eBe7A1DBC7">verified on PolygonScan</a>.</li>
+                        <li>Verified contract authenticity and transparency by having it <a target="_blank" rel="noreferrer" href="https://mumbai.polygonscan.com/address/0xA3f96e91fef535f2d2b83891658e99eBe7A1DBC7">verified on PolygonScan</a>.</li>
                     </ul>
                     <h4>Mumbai</h4>
                     <ul>
