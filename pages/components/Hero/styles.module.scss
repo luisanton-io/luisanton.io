@@ -1,0 +1,57 @@
+@import "colors";
+@import "animations";
+@import "mixin";
+
+.hero {
+    --dimension: 80vmin;
+
+    @include screen-md {
+        --dimension: 50vmin;
+    }
+    min-height: 90vh;
+    transform: translateZ(-1px) scale(2);
+
+    @include flex-section;
+    @include screen-md {
+        flex-direction: row;
+    }
+
+    .imgWrapper {
+        border-radius: 500px;
+        position: relative;
+        display: flex;
+
+        width: var(--dimension);
+        height: var(--dimension);
+
+        margin: 3em;
+        animation: shadows 15s infinite linear;
+
+        div {
+            --tint: 0;
+            border-radius: 500px;
+            width: 100%;
+            box-shadow: inset 0px 0px 1.75em 0.25em hsla(var(--tint), 100%, 75%, 0.5);
+
+            img {
+                clip-path: circle(50%);
+                position: relative;
+                z-index: -1;
+                display: flex;
+                margin: auto;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    h1,
+    h4 {
+        text-align: center;
+    }
+
+    h4 {
+        opacity: 0.8;
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,13 @@
+@mixin screen-md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin flex-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}

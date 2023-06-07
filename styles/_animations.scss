@@ -1,0 +1,61 @@
+@keyframes shadows {
+    0% {
+        filter: drop-shadow(-18px 18px 35px darken(#02060d, 10%)) drop-shadow(8px -8px 25px lighten(#47994d, 30%));
+    }
+    25% {
+        filter: drop-shadow(18px 18px 35px darken(#02060d, 10%)) drop-shadow(-8px -8px 25px lighten(#47994d, 30%));
+    }
+    50% {
+        filter: drop-shadow(18px -18px 35px darken(#02060d, 10%)) drop-shadow(-8px 8px 25px lighten(#47994d, 30%));
+    }
+    75% {
+        filter: drop-shadow(-18px -18px 35px darken(#02060d, 10%)) drop-shadow(8px 8px 25px lighten(#47994d, 30%));
+    }
+    100% {
+        filter: drop-shadow(-18px 18px 35px darken(#02060d, 10%)) drop-shadow(8px -8px 25px lighten(#47994d, 30%));
+    }
+}
+
+@keyframes slide {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0.75);
+        opacity: 0.25;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-blurred-bottom {
+    0% {
+        transform: translateY(100%);
+        filter: blur(16px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.scale-in-center {
+    animation: scale-in-center 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.slide-in-blurred-bottom {
+    animation: slide-in-blurred-bottom 2.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}

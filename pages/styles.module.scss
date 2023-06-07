@@ -1,0 +1,27 @@
+@import "colors";
+@import "animations";
+@import "mixin";
+
+.main {
+  height: 100vh;
+  min-height: 100vh;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+
+  & > div {
+    scroll-snap-align: center;
+    @media (min-width: 992px) {
+      padding-left: 20vw;
+      padding-right: 20vw;
+    }
+  }
+
+  @supports (-webkit-hyphens: none) {
+    scroll-snap-type: none;
+    max-height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+  }
+}
