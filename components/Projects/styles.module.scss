@@ -220,11 +220,7 @@
 
         ul.links {
             display: flex;
-            justify-content: space-between;
-            @include screen-md {
-                gap: 3ch;
-                justify-content: flex-start;
-            }
+            gap: 3ch;
             flex-wrap: wrap;
             li {
                 list-style-type: none;
