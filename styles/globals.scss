@@ -39,7 +39,7 @@ body {
     max-height: -webkit-fill-available;
   }
 
-  @include screen-md {
+  @include desktop {
     font-size: 1.1em;
   }
 }

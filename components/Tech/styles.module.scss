@@ -27,7 +27,7 @@
         align-items: center;
         margin-top: 2em;
 
-        @include screen-md {
+        @include desktop {
             grid-template: 33.333% 33.334% 33.333% / repeat(4, 25%);
             padding-left: 10vh;
             padding-right: 10vh;
@@ -40,7 +40,7 @@
             margin: 1em 0px;
 
             img {
-                @include screen-md {
+                @include desktop {
                     transform: scale(0.9);
                 }
             }
@@ -60,7 +60,7 @@
 
             span {
                 display: none;
-                @include screen-md {
+                @include desktop {
                     display: unset;
                 }
             }

@@ -35,7 +35,7 @@
             justify-content: space-between;
             gap: 4ch;
 
-            @include screen-md {
+            @include desktop {
                 flex-basis: calc(50% - 2ch);
                 margin-bottom: 1em;
                 height: 20vh;
@@ -89,7 +89,7 @@
                         }
                     }
 
-                    @include screen-md {
+                    @include desktop {
                         width: 120px;
                         height: 120px;
                         svg {
@@ -110,7 +110,7 @@
 
             &:nth-of-type(odd) {
                 flex-direction: row-reverse;
-                @include screen-md {
+                @include desktop {
                     flex-direction: row;
                 }
             }
@@ -125,7 +125,7 @@
         border: none;
         border-radius: 0px;
         padding: 1em 2ch;
-        @include screen-md {
+        @include desktop {
             padding: 4em;
         }
         color: $white;
@@ -172,7 +172,7 @@
             justify-content: center;
             flex-direction: column;
 
-            @include screen-md {
+            @include desktop {
                 flex-direction: row;
             }
 
@@ -185,7 +185,7 @@
 
         .textWrapper {
             margin: 1em;
-            @include screen-md {
+            @include desktop {
                 margin: unset;
                 padding: 1em 1ch 1em 8ch;
                 max-height: 75vh;
@@ -227,7 +227,7 @@
                 width: 80px;
                 height: 80px;
                 padding: 0.5em;
-                @include screen-md {
+                @include desktop {
                     width: 100px;
                     height: 100px;
                     padding: 1em;
