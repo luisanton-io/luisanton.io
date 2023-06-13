@@ -26,16 +26,16 @@ export default function Hero() {
                 <h4>Full Stack Developer</h4>
             </div>
             <div className={styles.linksWrapper}>
-                <a style={{ animationDelay: '1s' }} target="_blank" href="https://linkedin.com/in/luis-antonio-canettoli">
+                <a style={{ animationDelay: '1s' }} rel="noreferrer" target="_blank" href="https://linkedin.com/in/luis-antonio-canettoli">
                     <Image alt="Linked In" src="/linkedin.png" width={84} height={21} />
                     <span>LinkedIn</span>
                 </a>
-                <a style={{ animationDelay: '1.25s' }} target="_blank" href="https://github.com/luisanton-io">
+                <a style={{ animationDelay: '1.25s' }} rel="noreferrer" target="_blank" href="https://github.com/luisanton-io">
                     <Image alt="github" src="/github.svg" width={20} height={20} />
                     <span>Github</span>
                     <Image alt="github" src="/github.png" width={75} height={31} />
                 </a>
-                <a style={{ animationDelay: '1.5s' }} target="_blank" href="https://stackoverflow.com/users/11783958/luis-antonio-canettoli-ordo%c3%b1ez">
+                <a style={{ animationDelay: '1.5s' }} rel="noreferrer" target="_blank" href="https://stackoverflow.com/users/11783958/luis-antonio-canettoli-ordo%c3%b1ez">
                     <Image alt="Stack Overflow" src="/stack-overflow.svg" width={155} height={30} style={{ marginBottom: '0.4em' }} />
                     <span>Stack Overflow</span>
                 </a>
