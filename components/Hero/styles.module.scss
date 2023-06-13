@@ -48,7 +48,7 @@
     .headerText {
         flex-grow: 1;
         margin-block-end: 5em;
-        @desktop {
+        @include desktop {
             margin-block-end: unset;
         }
         .linksWrapper {
