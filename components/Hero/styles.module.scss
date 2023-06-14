@@ -70,30 +70,6 @@
                 justify-content: center;
                 align-items: center;
 
-                img[alt="Linked In"] {
-                    color: transparent;
-                    width: 25px;
-                    height: 25px;
-                    object-position: right;
-                    object-fit: cover;
-                }
-
-                img[alt="github"] {
-                    width: 25px;
-                    height: 25px;
-                    &:last-child {
-                        display: none;
-                    }
-                }
-
-                img[alt="Stack Overflow"] {
-                    color: transparent;
-                    width: 23px;
-                    height: 25px;
-                    object-position: left;
-                    object-fit: cover;
-                }
-
                 span {
                     display: none;
                 }
