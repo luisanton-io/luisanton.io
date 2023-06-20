@@ -6,7 +6,7 @@ import StackOverflowIcon from "./icons/StackOverflowIcon.jsx"
 import me from "./me.png"
 import styles from "./styles.module.scss"
 
-export default function Hero() {
+export default function Hero({ setPageReady }) {
     const [tint, setTint] = useState(0)
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="scale-in-center">
             <div className={styles.imgWrapper}>
                 <div style={{ '--tint': tint }}>
-                    <Image src={me} alt="Luis Antonio" />
+                    <Image src={me} alt="Luis Antonio" loading="eager" onLoadingComplete={setPageReady} />
                 </div>
             </div>
         </div>

@@ -5,8 +5,12 @@ import AboutMe from '../components/AboutMe'
 import Tech from '../components/Tech'
 import Contacts from '../components/Contacts'
 import Projects from '../components/Projects'
+import { useState } from 'react'
 
 export default function Home() {
+
+  const [pageReady, setPageReady] = useState(false)
+
   return (
     <>
       <Head>
@@ -16,8 +20,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <h1>PAGE IS {pageReady ? "READY" : "NOT READY"}</h1>
 
-        <Hero />
+        <Hero setPageReady={() => setPageReady(true)} />
         <AboutMe />
         <Projects />
         <Tech />
