@@ -1,12 +1,17 @@
+import Loader from 'components/Loader'
 import Head from 'next/head'
-import styles from './styles.module.scss'
-import Hero from '../components/Hero'
+import { useState } from 'react'
 import AboutMe from '../components/AboutMe'
-import Tech from '../components/Tech'
 import Contacts from '../components/Contacts'
+import Hero from '../components/Hero'
 import Projects from '../components/Projects'
+import Tech from '../components/Tech'
+import styles from './styles.module.scss'
 
 export default function Home() {
+
+  const [pageReady, setPageReady] = useState(false)
+
   return (
     <>
       <Head>
@@ -15,14 +20,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <Loader pageReady={pageReady} />
 
-        <Hero />
+      <main className={styles.main}>
+        <Hero pageReady={pageReady} setPageReady={() => {
+          setTimeout(() => {
+            setPageReady(true)
+          }, 300)
+        }} />
         <AboutMe />
         <Projects />
         <Tech />
         <Contacts />
-
       </main>
 
     </>
