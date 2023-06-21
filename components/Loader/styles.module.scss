@@ -1,0 +1,23 @@
+@use "sass:color";
+@import "colors";
+
+.loader {
+    position: fixed;
+    inset: 0;
+    // background-color: color.change($primary, $alpha: 1);
+    background: $body-bg;
+    background-size: 200% 100%;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    > div {
+        opacity: 0.8;
+    }
+
+    &[data-ready="true"] {
+        opacity: 0;
+        pointer-events: none;
+    }
+}

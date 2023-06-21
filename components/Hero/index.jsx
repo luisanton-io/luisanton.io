@@ -1,3 +1,4 @@
+import cn from "classnames"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import GithubIcon from "./icons/GithubIcon"
@@ -6,7 +7,7 @@ import StackOverflowIcon from "./icons/StackOverflowIcon.jsx"
 import me from "./me.png"
 import styles from "./styles.module.scss"
 
-export default function Hero({ setPageReady }) {
+export default function Hero({ pageReady, setPageReady }) {
     const [tint, setTint] = useState(0)
 
     useEffect(() => {
@@ -16,19 +17,19 @@ export default function Hero({ setPageReady }) {
     }, [])
 
     return <div className={styles.hero}>
-        <div className="scale-in-center">
+        <div className={cn(pageReady && "scale-in-center")}>
             <div className={styles.imgWrapper}>
                 <div style={{ '--tint': tint }}>
-                    <Image src={me} alt="Luis Antonio" loading="eager" onLoadingComplete={setPageReady} />
+                    <Image src={me} alt="Luis Antonio" priority onLoadingComplete={setPageReady} />
                 </div>
             </div>
         </div>
         <div className={styles.headerText}>
-            <div className="slide-in-blurred-bottom">
+            <div className={cn(pageReady && "slide-in-blurred-bottom")}>
                 <h1> Hello. <br /> My name is Luis Antonio.</h1 >
                 <h4>Full Stack Developer</h4>
             </div>
-            <div className={styles.linksWrapper}>
+            <div className={cn(pageReady && styles.linksWrapper)}>
                 <a style={{ animationDelay: '1s' }} rel="noreferrer" target="_blank" href="https://linkedin.com/in/luis-antonio-canettoli">
                     <LinkedinIcon />
                     <span>LinkedIn</span>
