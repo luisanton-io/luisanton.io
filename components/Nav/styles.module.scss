@@ -1,15 +1,21 @@
 @import "colors";
+@import "mixin";
 
 .navbar {
     border-bottom: 1px solid linear-gradient(to right, #f0f0f0, #fff);
-    padding: 0 1rem;
+    padding: 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
     ul {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        @include desktop {
+            justify-content: flex-end;
+            backdrop-filter: unset;
+        }
         align-items: center;
         gap: 3ch;
         padding: 1em 6ch;
