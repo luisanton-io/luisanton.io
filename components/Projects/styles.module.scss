@@ -288,11 +288,14 @@
             color: $white;
             font-size: 2em;
             transition: transform 0.5s ease-in-out;
-            &:hover {
-                transform: scale(1.1);
-            }
+            mix-blend-mode: difference;
             &::after {
                 content: "×";
+            }
+            @include desktop {
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
     }

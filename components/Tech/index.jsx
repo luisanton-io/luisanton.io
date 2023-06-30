@@ -35,7 +35,7 @@ export default function Tech() {
     })
 
     return (
-        <div className={styles.tech}>
+        <div id="tech" className={styles.tech}>
             <h2>tech i use</h2>
 
             <div ref={ref} className={styles.techWrapper} style={inView ? { height: '60vh' } : { height: 0 }}>

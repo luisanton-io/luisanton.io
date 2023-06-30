@@ -1,14 +1,17 @@
 import cn from "classnames"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import GithubIcon from "./icons/GithubIcon"
 import LinkedinIcon from "./icons/LinkedinIcon"
 import StackOverflowIcon from "./icons/StackOverflowIcon.jsx"
 import me from "./me.png"
 import styles from "./styles.module.scss"
 
-export default function Hero({ pageReady, setPageReady }) {
+export default function Hero({ pageReady, setPageReady, mainRef }) {
     const [tint, setTint] = useState(0)
+    const [blur, setBlur] = useState(0)
+    // const [heroRef, setHeroRef] = useState()
+    const heroRef = useRef()
 
     useEffect(() => {
         setInterval(() => {
@@ -16,7 +19,29 @@ export default function Hero({ pageReady, setPageReady }) {
         }, 150)
     }, [])
 
-    return <div className={styles.hero}>
+    useEffect(() => {
+        // const handleScroll = e => {
+        //     const [{ clientHeight }, { scrollTop }] = [heroRef.current, mainRef.current]
+        //     const threshold = 0.8 * clientHeight
+        //     const blur = scrollTop >= threshold ? 1 : scrollTop / threshold
+        //     setBlur(8 * blur)
+        // }
+
+        // mainRef.current.addEventListener('scroll', handleScroll)
+
+        // return () => mainRef.current.removeEventListener('scroll', handleScroll)
+
+
+        mainRef.current.addEventListener('scroll', () => {
+            const [{ clientHeight }, { scrollTop }] = [heroRef.current, mainRef.current]
+            const threshold = 0.8 * clientHeight
+            const blur = scrollTop >= threshold ? 1 : scrollTop / threshold
+            setBlur(8 * blur)
+        })
+
+    }, [])
+
+    return <div id="intro" ref={heroRef} className={styles.hero} style={{ filter: `blur(${blur}px)` }}>
         <div className={cn(pageReady && "scale-in-center")}>
             <div className={styles.imgWrapper}>
                 <div style={{ '--tint': tint }}>

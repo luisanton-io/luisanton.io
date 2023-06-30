@@ -1,0 +1,33 @@
+@import "colors";
+
+.navbar {
+    border-bottom: 1px solid linear-gradient(to right, #f0f0f0, #fff);
+    padding: 0 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 3ch;
+        padding: 1em 6ch;
+        margin: 0;
+        li {
+            list-style-type: none;
+            a {
+                text-decoration: none;
+                color: $white;
+                font-weight: 600;
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+                transition: color 0.4s ease-in-out;
+                filter: drop-shadow(0px 0px 2px black);
+                &:hover {
+                    color: $link;
+                }
+            }
+        }
+    }
+}

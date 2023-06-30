@@ -25,7 +25,10 @@ p {
 
 html {
   background: hsl(219, 21%, 26%);
-  // background: #47994d;
+}
+
+main {
+  scroll-behavior: smooth;
 }
 
 body {

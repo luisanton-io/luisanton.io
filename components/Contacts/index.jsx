@@ -29,7 +29,7 @@ export default function Contacts() {
         stackoverflow: useInViewAnimation(variants(4)),
     }
 
-    return <div className={styles.contacts}>
+    return <div id="contacts" className={styles.contacts}>
         <h2>contacts</h2>
 
         <p>Feel free to contact me:</p>

@@ -7,7 +7,7 @@ export default function AboutMe() {
 
     const animationProps = useInViewAnimation(isMobile ? {} : undefined)
 
-    return <div className={styles.aboutMe}>
+    return <div id="about-me" className={styles.aboutMe}>
         <h2>about:me</h2>
         <motion.div {...animationProps}>
             <p>

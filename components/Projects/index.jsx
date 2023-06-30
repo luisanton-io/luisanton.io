@@ -56,7 +56,7 @@ export default function Projects() {
     }
 
     return <>
-        <div className={styles.projects}>
+        <div id="projects" className={styles.projects}>
             <h2>projects</h2>
             <div className={styles.wrapper}>
                 <p>

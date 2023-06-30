@@ -24,4 +24,10 @@
     max-height: -webkit-fill-available;
     min-height: -webkit-fill-available;
   }
+
+  // @supports (-moz-appearance: none) {
+  //   scroll-snap-type: none;
+  //   max-height: -moz-available;
+  //   min-height: -moz-available;
+  // }
 }
