@@ -20,25 +20,12 @@ export default function Hero({ pageReady, setPageReady, mainRef }) {
     }, [])
 
     useEffect(() => {
-        // const handleScroll = e => {
-        //     const [{ clientHeight }, { scrollTop }] = [heroRef.current, mainRef.current]
-        //     const threshold = 0.8 * clientHeight
-        //     const blur = scrollTop >= threshold ? 1 : scrollTop / threshold
-        //     setBlur(8 * blur)
-        // }
-
-        // mainRef.current.addEventListener('scroll', handleScroll)
-
-        // return () => mainRef.current.removeEventListener('scroll', handleScroll)
-
-
         mainRef.current.addEventListener('scroll', () => {
             const [{ clientHeight }, { scrollTop }] = [heroRef.current, mainRef.current]
             const threshold = 0.8 * clientHeight
             const blur = scrollTop >= threshold ? 1 : scrollTop / threshold
             setBlur(8 * blur)
         })
-
     }, [])
 
     return <div id="intro" ref={heroRef} className={styles.hero} style={{ filter: `blur(${blur}px)` }}>
