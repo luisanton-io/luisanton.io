@@ -15,18 +15,14 @@ export default function AboutMe() {
                 I have then started working in the IT industry in 2013.
             </p>
             <p>
-                Although my primary focus is web development, I have been recently immersing myself in
-                Solidity and exploring the exciting possibilities of Web3 technologies.
-            </p>
-            <p>
-                Regarding my latest experiences, up until 2022 I have tutored and taught in the
-                Full Stack Course at <a href="https://strive.school" target="_blank" rel="noreferrer">Epicode Global</a>,
-                during which we introduced students to the MERN Stack.
-            </p>
-            <p>
-                Between 2022 and 2023, I was hired by <a href="https://reasonlabs.com" target="_blank" rel="noreferrer">ReasonLabs</a> as
+                In my latest job I was hired by <a href="https://reasonlabs.com" target="_blank" rel="noreferrer">ReasonLabs</a> as
                 a member of the on-site Frontend team in Dubai, where I have been working using
                 the latest available frontend technologies and maintaining their Electron client for <a href="https://reasonlabs.com/platform/products/endpoint-protection">RAV Endpoint Protection</a>.
+            </p>
+            <p>
+                Currently, I am freelancing as blockchain developer as well as teaching for the Full Stack Course
+                at <a href="https://strive.school" target="_blank" rel="noreferrer">Epicode Global</a>,
+                in which I am introducing students to a classic Web2 MERN Stack.
             </p>
             <p>
                 I have worked for individuals and organizations in New York and Florida as well
