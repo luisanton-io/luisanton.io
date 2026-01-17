@@ -1,5 +1,7 @@
-import Loader from 'components/Loader'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
+
+const Loader = dynamic(() => import('components/Loader'), { ssr: false })
 import { useRef, useState } from 'react'
 import AboutMe from '../components/AboutMe'
 import Contacts from '../components/Contacts'

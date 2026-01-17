@@ -1,7 +1,9 @@
 import { motion } from "framer-motion"
+import dynamic from "next/dynamic"
 import useInViewAnimation from "../../hooks/useInViewAnimation"
-import LottieEq from "./LottieEq"
 import styles from "./styles.module.scss"
+
+const LottieEq = dynamic(() => import("./LottieEq"), { ssr: false })
 import musikMenuGif from "./assets/musik-menu.gif"
 import Image from "next/image"
 
